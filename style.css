@@ -1,0 +1,8 @@
+.coffee-list{ 
+  background-image: url("img/background.jpg");
+  background-size: cover;
+}
+
+.coffee-item img {
+  height: 100px;
+}
