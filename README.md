@@ -1,1 +1,2 @@
 # coffee-machine
+кофе-машина
