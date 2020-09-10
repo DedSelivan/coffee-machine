@@ -15,19 +15,19 @@
     <div class="container">
       <div class="row">
         <div class="col-6 coffee-list d-flex flex-column justify-content-around">       <!--выравнивание кнопок с change-container-->
-          <div class="coffee-item">
+          <div class="coffee-item" onclick="makeCoffee('Американо', 50)">
             <img src="img/americano.png" alt="Американо">
             <span>Американо - 50 руб.</span>
           </div>
-          <div class="coffee-item">
+          <div class="coffee-item" onclick="makeCoffee('Капучино', 73)">
             <img src="img/cappuccino.png" alt="Капучино">
             <span>Капучино - 73 руб.</span>
           </div>
-          <div class="coffee-item">
+          <div class="coffee-item" onclick="makeCoffee('Эспрессо', 61)">
             <img src="img/espresso.png" alt="Эспрессо">
             <span>Эспрессо - 61 руб.</span>
           </div>
-          <div class="coffee-item">
+          <div class="coffee-item" onclick="makeCoffee('Латте', 112)">
             <img src="img/latte.jpg" alt="Латте">
             <span>Латте - 112 руб.</span>
           </div>
@@ -47,7 +47,7 @@
             </div>
             <div class="col-6">
               <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Имя получателя" aria-label="Имя получателя" aria-describedby="basic-addon2">
+              <input type="text" class="form-control" placeholder="Баланс" aria-label="Имя получателя" aria-describedby="basic-addon2">
               <div class="input-group-append">
               <span class="input-group-text" id="basic-addon2">&#8381;</span>
             </div>
@@ -55,7 +55,7 @@
           <div class="atm-container">
             <img src="img/bill_acc.png" alt="acc" class="atm">
           </div>
-          <button class="btn btn-primary btn-block my-2">Сдача</button>
+          <button class="btn btn-primary btn-block my-2" <!--onclick="alert('Получаем сдачу')-->">Сдача</button>
           <div class="change-container">
             
           </div>
@@ -63,7 +63,9 @@
       </div>
     </div>
 
-    
+
+    <script src="script.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
