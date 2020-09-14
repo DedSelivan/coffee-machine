@@ -63,6 +63,11 @@
          </div>
       </div>
       </div>
+      <div class="money">
+        <img src="img/50rub.jpg" alt="" data-cost="50">
+        <img src="img/100rub.jpg" alt=""data-cost="100">
+        <img src="img/500rub.jpg" alt=""data-cost="500">
+      </div>
       <!-- Optional JavaScript -->
       <!--<script src = "lesson.js"></script>-->
       <script src = "script.js"></script>

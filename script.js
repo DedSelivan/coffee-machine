@@ -68,3 +68,107 @@ function changeDisplayText(message) {
   displayText.innerHTML = message;
   }
   
+// ------------------------Drag  ' n ' Drop ----------------------------------
+
+
+let money = document.querySelectorAll(".money img");
+// for (let i = 0; i < money.length; i++) {
+  // let bill = money[i];
+// }
+
+for (let bill of money){
+  bill.onmousedown = function(event){
+    // console.log(event);
+    takeMoney(event, bill);
+  };
+}
+
+function takeMoney(event, bill) {
+  event.preventDefault();
+  
+  let mouseX = event.clientX;
+  let mouseY = event.clientY;
+  bill.style.transform = "rotate(90deg)";
+ 
+  let billCoords = bill.getBoundingClientRect();
+  console.log(billCoords);
+  
+  bill.style.position = "absolute";
+  bill.style.top = mouseY - billCoords.width/2 + "px";
+  bill.style.left = mouseX - billCoords.height/2 + "px";
+  
+  window.onmousemove = function(event) {
+      let mouseX = event.clientX;
+      let mouseY = event.clientY;
+      bill.style.top = mouseY - billCoords.width/2 + "px";
+      bill.style.left = mouseX - billCoords.height/2 + "px";
+  };
+  bill.onmouseup = function(event) {
+    window.onmousemove = null;
+    if (inAtm(bill)){
+      let balance = document.querySelector(".form-control");
+      balance.value = +balance.value + +bill.dataset.cost;
+      bill.remove();
+    }
+  };  
+}
+
+function inAtm(bill) {
+  let atm = document.querySelector(".atm");
+  let atmCoords = atm.getBoundingClientRect();
+  let billCoords = bill.getBoundingClientRect();
+  
+  let atmLeftTopX = atmCoords.x;
+  let atmLeftTopY = atmCoords.y;
+  
+  let atmLeftBottomX = atmCoords.x;
+  let atmLeftBottomY = atmCoords.y + atmCoords.height/3;
+  
+  let atmRightTopX = atmCoords.x + atmCoords.width;
+  let atmRightTopY = atmCoords.y;
+  
+  let billLeftTopX = billCoords.x;
+  let billLeftTopY = billCoords.y;
+  
+  let billRightTopX = billCoords.x + billCoords.width;
+  let billRightTopY = billCoords.y;
+
+  // console.log([atmLeftTopX, atmLeftTopY, atmLeftBottomX, atmLeftBottomY, atmRightTopX, atmRightTopY, billLeftTopX, billLeftTopY,  billRightTopX, billRightTopY]);
+  
+  if (billLeftTopX > atmLeftTopX
+      && billLeftTopY > atmLeftTopY
+      && billLeftTopY < atmLeftBottomY
+      && billRightTopX < atmRightTopX)
+  {
+    return true;
+  } else {
+    return false;
+  }
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
